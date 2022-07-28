@@ -5,7 +5,7 @@ namespace App\Form;
 use App\Entity\Produit;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Vich\UploaderBundle\Form\Type\VichImageType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -29,7 +29,7 @@ class ProduitType extends AbstractType
                 'choice_label'=>'nom',
                 'class'=>Category::class
             ])
-            ->add('imageFile', VichImageType::class)
+            ->add('imageFile',VichFileType::class)
             ->add('submit', SubmitType::class)
         ;
     }
