@@ -14,26 +14,8 @@ class CategoryController extends AbstractController
     public function index(Request $request ,ManagerRegistry $manager): Response
     {
         $categories=$manager->getRepository(Category::class)->findAll();
-       // $entityManager = $manager->getManager();
-       /*$category = new Category();
-       $form=$this->createForm(CategoryType::class,$category);
-        //$category->setNom('Fruits');
-        
-        //$entityManager->persist( $category);
-        //$entityManager->flush();
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager=$manager->getManager();
-            $category = $form->getData();
-            $entityManager->persist($category);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_welcome');
-        }*/
-
-
-
-        return $this->render('admin/category/index.html.twig', [
+      
+        return $this->render('admin/category/cate.html.twig', [
             'categories'=>$categories,
             //'form'=>$form->createView()
         ]);

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+    <center>
+        <h1>Liste des utilisateurs</h1>
+        <table class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Mot_de_passe</th>
+            </tr>
+            {% for user in Users %}
+            <tr>
+                <td>{{ user.id}}</td>
+                <td>{{ user.Email}}</td>
+                
+                <td>{{ user.password}}</td>
+                <td>
+                    <td>
+                        <a href="{{path('app_admin_delete',{id: user.id})}}">supprimer</a>
+                       
+                        <a href="{{path('app_admin_update',{id: user.id})}}">Editer</a>
+                    </td>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div>
+            <a href="{{path('app_admin_newuser')}}" class="btn btn-success">Ajouter un utilisateur</a>
+        </div>
+    </center> 
+{% endblock %}

@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Category;
+use App\Entity\Produit;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,9 +13,9 @@ class WelcomController extends AbstractController
     #[Route('/', name: 'app_welcom')]
     public function index(ManagerRegistry $manager): Response
     {
-        $category=$manager->getRepository(Category::class)->findAll();
+        $produit=$manager->getRepository(Produit::class)->findAll();
         return $this->render('welcom/index.html.twig', [
-            'categories' => $category,
+            'produits' => $produit,
         ]);
     }
 }

@@ -3,5 +3,45 @@
 {% block title %}Hello WelcomController!{% endblock %}
 
 {% block body %}
-   
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{asset('images/fuits.jpg')}}" class="d-block w-100">
+        </div>
+    <div class="carousel-item">
+        <img src="{{asset('images/R.jpg')}}" class="d-block w-100">
+    </div>
+    <div class="carousel-item">
+        <img src="{{asset('images/legumes.jpg')}}" class="d-block w-100" >
+    </div>
+    <div class="carousel-item">
+        <img src="{{asset('images/alimentation.jpg')}}" class="d-block w-100" >
+    </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+       <br><br> 
+    <div class="container text-center">
+        {% for produit in produits %}
+        <div class="row row-cols-4">
+          
+            <div class="col rounded img-thumbnail"><img src="{{ vich_uploader_asset(produit) }}" alt="{{ produit.Nom }}"></div>
+        </div>
+        <div class="row">
+            <div class="col">{{produit.Nom}}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{produit.Prix}}€</div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    
 {% endblock %}

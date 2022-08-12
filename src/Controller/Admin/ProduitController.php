@@ -18,12 +18,11 @@ class ProduitController extends AbstractController
     {
         $protuits=$manager->getRepository(Produit::class)->findAll();
        
-       
-        
-        return $this->render('admin/produit/index.html.twig', [
+        return $this->render('admin/produit/produit.html.twig', [
             'produits' =>$protuits ,
         ]);
     }
+    
     #[Route('/produit/new', name: 'app_produit_new')]
     public function addproduct(Request $request, ManagerRegistry $manager): Response
     {
@@ -41,9 +40,6 @@ class ProduitController extends AbstractController
         return $this->render('admin/produit/new.html.twig',[
             'formproduit'=>$formproduit->createView()
         ]);
-        
-       
-        
        
     }
     
