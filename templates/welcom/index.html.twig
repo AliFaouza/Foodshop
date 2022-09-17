@@ -28,20 +28,28 @@
     </button>
 </div>
        <br><br> 
-    <div class="container text-center">
-        {% for produit in produits %}
-        <div class="row row-cols-4">
-          
-            <div class="col rounded img-thumbnail"><img src="{{ vich_uploader_asset(produit) }}" alt="{{ produit.Nom }}"></div>
+       
+       <section>
+        <articles class="col-lg-12" >
+            
+        <article class="row">
+            {% for produit in produits %}
+         <div class="col-lg-3">
+         <div class="row">
+            <div class="col-lg-12">
+                <img src="{{ vich_uploader_asset(produit) }}" alt="{{ produit.Nom }}" style="height: 200px;width: 100%; ">
+            </div>
+            
+            <div class="col-lg-12" >
+                <h2 class="fs-5">{{ produit.nom}} {{ produit.prix}} €</h2>
+            </div>
         </div>
-        <div class="row">
-            <div class="col">{{produit.Nom}}</div>
-        </div>
-        <div class="row">
-            <div class="col">{{produit.Prix}}€</div>
-        </div>
-        {% endfor %}
-    </div>
+      
+    </div> 
+    {% endfor %}
+        </article>
+        </articles>
+    </section>
     
     
 {% endblock %}
